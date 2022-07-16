@@ -30,6 +30,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
 		vue(),
 		mkcert(),
 		vueSetupExtend(),
+		//这里注意
 		AutoImport({
 			dts: 'types/auto-imports.d.ts', // 生成配置文件，如果是ts项目，通常我们会把声明文件放在根目录/types中，注意，这个文件夹需要先建好，否则可能导致等下无法往里生成auto-imports.d.ts文件
 			imports: ['vue', 'vue-router', 'pinia'],
