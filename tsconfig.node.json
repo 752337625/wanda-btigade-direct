@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"composite": true,
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"allowSyntheticDefaultImports": true
+	},
+	"include": [
+		"tests/**/*.ts",
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"src/**/*.tsx",
+		"src/**/*.vue",
+		"types/**/*.d.ts",
+		"types/**/*.ts",
+		"build/**/*.ts",
+		"build/**/*.d.ts",
+		"mock/**/*.ts",
+		"vite.config.ts",
+		"./types/auto-imports.d.ts" // 此处引入该声明文件，注意先前生成好的声明文件地址
+	]
+}
