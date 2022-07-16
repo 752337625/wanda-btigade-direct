@@ -11,7 +11,6 @@ import { configVisualizerConfig } from './visualizer'; // successF
 import { configPwaConfig } from './pwa'; // success
 //使vue脚本设置语法支持 name 属性。<script lang="ts" setup name="App"></script>
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'; // success
-import vuejsx from '@vitejs/plugin-vue-jsx';
 import AutoImport from 'unplugin-auto-import/vite'; // success
 import Components from 'unplugin-vue-components/vite'; // success
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'; // success
@@ -29,20 +28,20 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
 		viteEnv;
 	const vitePlugins: (PluginOption | PluginOption[])[] = [
 		vue(),
-		vuejsx(),
 		mkcert(),
 		vueSetupExtend(),
 		AutoImport({
 			dts: 'types/auto-imports.d.ts', // 生成配置文件，如果是ts项目，通常我们会把声明文件放在根目录/types中，注意，这个文件夹需要先建好，否则可能导致等下无法往里生成auto-imports.d.ts文件
 			imports: ['vue', 'vue-router', 'pinia'],
 			eslintrc: {
-				enabled: false, // 默认false, true启用。生成一次就可以，避免每次工程启动都生成，一旦生成配置文件之后，最好把enable关掉，即改成false。否则这个文件每次会在重新加载的时候重新生成，这会导致eslint有时会找不到这个文件。当需要更新配置文件的时候，再重新打开
-				// filepath: './eslintrc-auto-import.json', // 生成json文件,可以不配置该项，默认就是将生成在根目录
+				enabled: true, // 默认false, true启用。生成一次就可以，避免每次工程启动都生成，一旦生成配置文件之后，最好把enable关掉，即改成false。否则这个文件每次会在重新加载的时候重新生成，这会导致eslint有时会找不到这个文件。当需要更新配置文件的时候，再重新打开
+				filepath: './.eslintrc-auto-import.json', // 生成json文件,可以不配置该项，默认就是将生成在根目录
 				globalsPropValue: true,
 			},
 			resolvers: [ElementPlusResolver()], //提供解决Element取消手动import问题
 		}),
 		Components({
+			dts: 'types/components.d.ts', // 生成配置文件，如果是ts项目，通常我们会把声明文件放在根目录/types中，注意，这个文件夹需要先建好，否则可能导致等下无法往里生成components.d.ts文件
 			resolvers: [ElementPlusResolver()], // 组件按需引入，例如Element2.x的按需引入方式。后采用AutoImport取消import
 		}),
 		ViteRestart({
@@ -52,6 +51,7 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
 		Banner(
 			`/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * description: ${pkg.description}\n * author: ${pkg.author}\n * homepage: ${pkg.homepage}\n */`,
 		),
+		//测试vite版本2.0.0以后无法使用了
 		PkgConfig(),
 		OptimizationPersist(),
 	];

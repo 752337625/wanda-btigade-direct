@@ -44,7 +44,6 @@
 		"@typescript-eslint/parser": "^5.20.0",
 		"@vitejs/plugin-legacy": "^2.0.0",
 		"@vitejs/plugin-vue": "^3.0.0",
-		"@vitejs/plugin-vue-jsx": "^2.0.0",
 		"autoprefixer": "^10.3.7",
 		"cross-env": "^7.0.3",
 		"eslint": "^8.13.0",

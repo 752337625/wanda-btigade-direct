@@ -21,6 +21,7 @@ module.exports = {
 		browser: true,
 		node: true,
 		commonjs: true,
+		es6: true,
 	},
 	/**
 	 * prettier->eslint-plugin-prettier
@@ -36,7 +37,13 @@ module.exports = {
 	 * plugin:@typescript-eslint/recommended->@typescript-eslint/eslint-plugin
 	 * eslintrc-auto-import.json 文件默认在根目录，可以在pulgin->index.ts 文件中修改位置 './eslintrc-auto-import.json'
 	 */
-	extends: ['eslint:recommended', 'plugin:vue/vue3-recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
+	extends: [
+		'eslint:recommended',
+		'plugin:vue/vue3-recommended',
+		'plugin:@typescript-eslint/recommended',
+		'prettier',
+		'./.eslintrc-auto-import.json',
+	],
 	rules: {
 		/**
 		 * eslint:recommended
@@ -57,14 +64,6 @@ module.exports = {
 		'@typescript-eslint/no-unused-vars': ['off'], //解决<script setup lang="ts"> <script lang="ts">中定义变量在<template>使用no-unused-vars问题
 		'@typescript-eslint/no-var-requires': ['off'], //解决requires异常
 		'@typescript-eslint/no-explicit-any': ['off'], //解决ts 无法使用any异常
-		'@typescript-eslint/ban-types': [
-			'error',
-			{
-				extendDefaults: true,
-				types: {
-					'{}': false,
-				},
-			},
-		], //解决error  Don't use `{}` as a type. `{}` actually means "any non-nullish value".
+		'@typescript-eslint/ban-types': ['off'], //解决error  Don't use `{}` as a type. `{}` actually means "any non-nullish value".
 	},
 };
