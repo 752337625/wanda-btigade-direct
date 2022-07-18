@@ -28,13 +28,23 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
 		resolve: {
 			alias: {
 				'@': resolve(__dirname, 'src'), //把src改为@
-				'@t': resolve(__dirname, 'types'), //把ypes改为#
+				'@c': resolve(__dirname, 'src/components'), //把components改为@c
+				'@t': resolve(__dirname, 'types'), //把ypes改为@t
+				'@ac': resolve(__dirname, 'src/assets/css'), //把src/assets/css改为@ac
+				'@v': resolve(__dirname, 'src/views'), //把views改为@v
 			},
 			//mainFields: ['module', 'jsnext:main', 'jsnext'],
 			//extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
 			//preserveSymlinks:false
 		},
-		css: {},
+		css: {
+			preprocessorOptions: {
+				less: {
+					modifyVars: {},
+					javascriptEnabled: true,
+				},
+			},
+		},
 		json: {
 			//namedExports: true,
 			//stringify:true
@@ -64,7 +74,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
 		plugins: createVitePlugins(viteEnv, isBuild),
 		optimizeDeps: {
 			exclude: [],
-			include: [],
+			include: ['element-plus/lib/locale/lang/zh-cn'],
 		},
 	};
 };

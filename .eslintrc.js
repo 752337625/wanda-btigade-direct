@@ -5,6 +5,7 @@ module.exports = {
 		parser: '@typescript-eslint/parser' /* 解析ts语法 */,
 		ecmaVersion: 2020,
 		sourceType: 'module',
+		jsxPragma: 'React',
 		ecmaFeatures: {
 			globalReturn: false,
 			impliedStrict: false,

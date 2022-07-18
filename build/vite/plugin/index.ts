@@ -21,13 +21,15 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'; // succ
 import ViteRestart from 'vite-plugin-restart';
 import Banner from 'vite-plugin-banner';
 import pkg from '../../../package.json';
-import OptimizationPersist from 'vite-plugin-optimize-persist';
-import PkgConfig from 'vite-plugin-package-config';
+// import OptimizationPersist from 'vite-plugin-optimize-persist';
+// import PkgConfig from 'vite-plugin-package-config';
+import vuejsx from '@vitejs/plugin-vue-jsx';
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
 	const { VITE_USE_IMAGEMIN, VITE_LEGACY, VITE_BUILD_COMPRESS, VIT_BEUILD_COMPRESS_DELETE_ORIGIN_FILE, VITE_USE_PWA } =
 		viteEnv;
 	const vitePlugins: (PluginOption | PluginOption[])[] = [
 		vue(),
+		vuejsx(),
 		mkcert(),
 		vueSetupExtend(),
 		//这里注意
@@ -52,9 +54,6 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean) {
 		Banner(
 			`/**\n * name: ${pkg.name}\n * version: v${pkg.version}\n * description: ${pkg.description}\n * author: ${pkg.author}\n * homepage: ${pkg.homepage}\n */`,
 		),
-		//测试vite版本2.0.0以后无法使用了
-		PkgConfig(),
-		OptimizationPersist(),
 	];
 	// vite-plugin-style-import
 	// vitePlugins.push(configStyleImportPlugin(isBuild));

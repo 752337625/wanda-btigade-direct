@@ -1,3 +1,6 @@
+# 项目ESlint检测问题说明
+很慢，耐心等待。异常可能是假的
+
 # unplugin-auto-import 说明
 
 每次重新启动都会重新生成 auto-imports.d.ts eslintrc-auto-import.json components.d.ts 三个文件，导致每次都要重新提交。为此将这三个文件添加到.gitignore 文件中。因为使用远远大于配置修改。

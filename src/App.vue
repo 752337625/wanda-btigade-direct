@@ -1,8 +1,11 @@
 <script setup lang="ts" name="App">
-	let locale = ref('zh');
+	import zhCn from 'element-plus/lib/locale/lang/zh-cn';
+	let locale = zhCn;
 </script>
 <template>
-	<el-config-provider :locale="locale"> 555</el-config-provider>
+	<el-config-provider :locale="locale">
+		<router-view></router-view>
+	</el-config-provider>
 </template>
 <script lang="ts">
 	export default defineComponent({

@@ -26,6 +26,3 @@ dist-ssr
 
 package-lock.json
 pnpm-lock.yaml
-auto-imports.d.ts
-.eslintrc-auto-import.json
-components.d.ts

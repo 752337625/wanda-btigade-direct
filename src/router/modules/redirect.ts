@@ -1,4 +1,4 @@
 export default {
-	// path: '/',
-	// redirect: '/main',
+	path: '/',
+	redirect: '/login',
 };
