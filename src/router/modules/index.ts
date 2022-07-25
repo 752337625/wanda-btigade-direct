@@ -3,6 +3,6 @@ import { RouteRecordRaw } from 'vue-router';
 const modules = import.meta.globEager('./*.ts');
 const routes: Array<RouteRecordRaw> = [];
 for (const path in modules) {
-	routes.push(modules[path].default);
+	routes.push(modules[path]?.default);
 }
 export default routes;

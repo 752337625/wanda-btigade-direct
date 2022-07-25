@@ -5,7 +5,7 @@ export function configSvgIconsPlugin(isBuild: boolean) {
 	const svgIconsPlugin = createSvgIconsPlugin({
 		iconDirs: [path.resolve(process.cwd(), 'src/assets/icons')],
 		svgoOptions: isBuild,
-		// default
+		// 指定symbolId格式
 		symbolId: 'icon-[dir]-[name]',
 	});
 	return svgIconsPlugin;

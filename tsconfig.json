@@ -11,13 +11,6 @@
 		"isolatedModules": true,
 		"esModuleInterop": true,
 		"lib": ["ESNext", "DOM"],
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["./src/*"],
-			"@t/*": ["./types/*"],
-			"@c/*": ["./src/component/*"],
-			"@ac/*": ["./src/assets/css/*"]
-		},
 		"types": ["element-plus/global"],
 		"skipLibCheck": true
 	},

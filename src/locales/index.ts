@@ -17,7 +17,7 @@ function createI18nOptions(): I18nOptions {
 		// messages: {
 		// 	[locale]: message,
 		//   },
-		availableLocales: availableLocales,
+		// availableLocales: availableLocales,
 		sync: true, //If you don’t want to inherit locale from global scope, you need to set sync of i18n component option to false.
 		silentTranslationWarn: true, // true - warning off
 		missingWarn: false,

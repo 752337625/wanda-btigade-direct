@@ -3,7 +3,14 @@
 		"composite": true,
 		"module": "ESNext",
 		"moduleResolution": "Node",
-		"allowSyntheticDefaultImports": true
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "."
+	},
+	"paths": {
+		"@/*": ["./src/*"],
+		"@t/*": ["./types/*"],
+		"@c/*": ["./src/component/*"],
+		"@ac/*": ["./src/assets/css/*"]
 	},
 	"include": [
 		"tests/**/*.ts",
