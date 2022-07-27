@@ -3,7 +3,6 @@
 		"target": "ESNext",
 		"useDefineForClassFields": true,
 		"module": "ESNext",
-		"moduleResolution": "Node",
 		"strict": true,
 		"jsx": "preserve",
 		"sourceMap": true,
@@ -12,11 +11,35 @@
 		"esModuleInterop": true,
 		"lib": ["ESNext", "DOM"],
 		"types": ["element-plus/global"],
-		"skipLibCheck": true
-	},
-	"references": [
-		{
-			"path": "./tsconfig.node.json"
+		"skipLibCheck": true,
+		"composite": true,
+		"moduleResolution": "Node",
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["src/*"],
+			"@t/*": ["types/*"],
+			"@c/*": ["src/component/*"],
+			"@s/*": ["src/store/*"],
+			"@ac/*": ["src/assets/css/*"],
+			"@cf/*": ["src/config/*"]
 		}
-	]
+	},
+	"vueCompilerOptions": {
+		"experimentalDisableTemplateSupport": true
+	},
+	"include": [
+		"tests/**/*.ts",
+		"src/**/*.ts",
+		"src/**/*.d.ts",
+		"src/**/*.tsx",
+		"src/**/*.vue",
+		"types/**/*.d.ts",
+		"types/**/*.ts",
+		"build/**/*.ts",
+		"build/**/*.d.ts",
+		"mock/**/*.ts",
+		"vite.config.ts"
+	],
+	"exclude": ["node_modules", "tests/server/**/*.ts", "dist", "**/*.js"]
 }

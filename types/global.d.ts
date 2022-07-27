@@ -1,6 +1,6 @@
 declare global {
-	type Recordable<T = any> = Record<string, T>;
-	interface ViteEnv {
+	declare type Recordable<T = any> = Record<string, T>;
+	declare interface ViteEnv {
 		VITE_PORT: number;
 		VITE_USE_MOCK: boolean;
 		VITE_USE_PWA: boolean;
@@ -17,5 +17,4 @@ declare global {
 		VITE_GENERATE_UI: string;
 	}
 }
-
 export {};

@@ -1,21 +1,44 @@
 <template>
-	<span :style="{ fontSize: size }">
-		<span class="iconify m-iconify" :data-icon="icon"></span>
-	</span>
+	<span ref="elRef" :class="['iconify', $attrs.class]" :data-icon="icon" :style="getWrapStyle"></span>
 </template>
 
 <script lang="ts">
-	import '@purge-icons/generated'; // <-- This
-	import { defineComponent } from 'vue';
+	import '@purge-icons/generated';
+	import type { PropType } from 'vue';
+	import { isString } from '@/utils/is';
+	import { defineComponent, CSSProperties } from 'vue';
 	export default defineComponent({
 		name: 'IconifyIcon',
 		props: {
-			icon: { type: String, required: true },
-			size: { type: String, default: '18' },
+			icon: {
+				type: [String],
+				default: '',
+				require: true,
+			},
+			color: {
+				type: [String],
+				default: '',
+			},
+			size: {
+				type: [String, Number] as PropType<string | number>,
+				default: 16,
+			},
 		},
+		setup(props) {
+			const getWrapStyle = computed((): CSSProperties => {
+				const { size, color } = props;
+				let fs = size;
+				if (isString(size)) {
+					fs = parseInt(size as string, 10);
+				}
 
-		setup() {
-			return {};
+				return {
+					fontSize: `${fs}px`,
+					color: color,
+					display: 'inline-flex',
+				};
+			});
+			return { getWrapStyle };
 		},
 	});
 </script>

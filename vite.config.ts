@@ -26,13 +26,41 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
 			proxy: createProxy(VITE_PROXY),
 		},
 		resolve: {
-			alias: {
-				'@': resolve(__dirname, 'src'), //把src改为@
-				'@c': resolve(__dirname, 'src/components'), //把components改为@c
-				'@t': resolve(__dirname, 'types'), //把ypes改为@t
-				'@ac': resolve(__dirname, 'src/assets/css'), //把src/assets/css改为@ac
-				'@v': resolve(__dirname, 'src/views'), //把views改为@v
-			},
+			//修改alias为数组，添加vue-i18n目的：控制台vue-i18n警告
+			alias: [
+				{
+					find: 'vue-i18n',
+					replacement: 'vue-i18n/dist/vue-i18n.cjs.js',
+				},
+				{
+					find: '@',
+					replacement: resolve(__dirname, 'src'),
+				},
+				{
+					find: '@c',
+					replacement: resolve(__dirname, 'src/components'),
+				},
+				{
+					find: '@t',
+					replacement: resolve(__dirname, 'types'),
+				},
+				{
+					find: '@ac',
+					replacement: resolve(__dirname, 'src/assets/css'),
+				},
+				{
+					find: '@v',
+					replacement: resolve(__dirname, 'src/views'),
+				},
+				{
+					find: '@cf',
+					replacement: resolve(__dirname, 'src/config'),
+				},
+				{
+					find: '@s',
+					replacement: resolve(__dirname, 'src/store'),
+				},
+			],
 			//mainFields: ['module', 'jsnext:main', 'jsnext'],
 			//extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
 			//preserveSymlinks:false
