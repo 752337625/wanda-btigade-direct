@@ -15,7 +15,7 @@ import vueSetupExtend from 'vite-plugin-vue-setup-extend'; // success
 import autoImport from 'unplugin-auto-import/vite'; // success
 import components from 'unplugin-vue-components/vite'; // success
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'; // success
-//AndDesignVueResolve,VantResolve,NutuiResolve,AntdResolve
+// AndDesignVueResolve,VantResolve,NutuiResolve,AntdResolve
 // import styleImport, { ElementPlusResolve, } from 'vite-plugin-style-import'
 //最常用的场景就是监听 vite.config.js 和 .env.development 文件，
 //我们知道，修改 vite 配置文件和环境配置文件，是需要重启 vite 才会生效，通过这个插件，我们将从反复重启中解脱出来。

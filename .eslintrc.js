@@ -34,14 +34,15 @@ module.exports = {
 	plugins: ['vue', '@typescript-eslint', 'import', 'prettier'],
 	/**
 	 * extends：定义文件集成子规则
-	 * eslint:recommendede 启动eslint默认规则 再vue-vben-admin 项目中没有对当前插件进行添加。如果添加进去就会造成默认规则开启.
-	 * 但是我们可以对指定的一些规则在rules进行添加 例如：'no-var': 'error', //禁止使用var
+	 * eslint:recommended 启动eslint默认规则 再vue-vben-admin 项目中没有对当前插件进行添加。如果添加进去就会造成默认规则开启.
+	 * 但是我们可以对指定的一些规则在rules进行添加 例如：'no-var': 'error', //禁止使用var。当前建议添加多多的进行学习
 	 * prettier->eslintF-config-prettier 避免与eslint规则冲突，提高prettier规则权重
 	 * plugin:vue/vue3-recommended->eslint-plugin-vue
 	 * plugin:@typescript-eslint/recommended->@typescript-eslint/eslint-plugin
 	 * eslintrc-auto-import.json 文件默认在根目录，可以在pulgin->index.ts 文件中修改位置 './eslintrc-auto-import.json'
 	 */
 	extends: [
+		'eslint:recommended',
 		'plugin:vue/vue3-recommended',
 		'plugin:@typescript-eslint/recommended',
 		'plugin:prettier/recommended',
@@ -51,6 +52,7 @@ module.exports = {
 		/**
 		 * eslint:recommended
 		 */
+		'no-useless-escape': 'off',
 		'prettier/prettier': 'error',
 		'no-var': 'error', //禁止使用var
 		eqeqeq: 'error', //要求使用 === 和 !==
